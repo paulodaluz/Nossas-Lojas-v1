@@ -8,8 +8,15 @@ module.exports = function (app) {
 
 
     app.post("/criaLojas/criaLoja", function (req, res) {
-        var criaLoja = req.body;
-        console.log(criaLoja);
-        res.send('ok');
+        var loja = req.body;
+        console.log('processando aguarde...');
+
+        var connection = app.persistencia.connectionFactory();
+        var lojaDao = new app.persistencia.LojaDao(connection); 
+
+        lojaDao.salva(loja, function (exception, result) {
+            console.log('loja criada: ' + result);
+            res.send(loja);
     })
 }
+)}

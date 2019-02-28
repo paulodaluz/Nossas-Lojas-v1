@@ -3,8 +3,8 @@ var mysql = require('mysql');
 function createDBConnection() {
     return mysql.createConnection({
         host: 'localhost',
-        user: 'paulo.luz',
-        password: 'OA1IYuuw',
+        user: 'root',
+        password: '',
         database: 'lojas'
     });
 }
