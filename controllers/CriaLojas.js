@@ -36,5 +36,24 @@ module.exports = function (app) {
     })
 })
 
+    app.put('/criaLojas/edita/:id', function (req, res) {
 
+        var loja = req.body;
+        var id = req.params.id;
+
+        loja.id = id;
+
+        var connection = app.persistencia.connectionFactory();
+        var lojaDao = new app.persistencia.LojaDao(connection);
+
+        lojaDao.altera(loja, function (erro) {
+            if (erro) {
+                res.status(500).send(erro);
+                return;
+            }
+            console.log('loja alterada');
+            res.send(loja);
+        });
+
+    });
 }
