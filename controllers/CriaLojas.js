@@ -1,5 +1,5 @@
 module.exports = function (app) {
-    app.post("/criaLojas/criaLoja", function (req, res) {
+    app.post("/criaLoja", function (req, res) {
         var loja = req.body;
         console.log('processando aguarde...');
 
@@ -34,7 +34,7 @@ module.exports = function (app) {
     })
 })
 
-    app.put('/criaLojas/edita/:id', function (req, res) {
+    app.put('/editaLoja/:id', function (req, res) {
 
         var loja = req.body;
         var id = req.params.id;
@@ -55,7 +55,7 @@ module.exports = function (app) {
 
     });
 
-    app.delete('/criaLojas/deleta/:id', function (req, res) {
+    app.delete('/deletaLoja/:id', function (req, res) {
         var id = req.params.id;
 
         var connection = app.persistencia.connectionFactory();
@@ -72,7 +72,7 @@ module.exports = function (app) {
     });
 
 
-    app.get('/criaLojas/buscaId/:id', function (req, res) {
+    app.get('/buscaId/:id', function (req, res) {
         var id = req.params.id;
 
         var connection = app.persistencia.connectionFactory();
@@ -90,7 +90,7 @@ module.exports = function (app) {
 
 
 
-    app.get('/criaLojas/buscaEstado/:estado', function (req, res) {
+    app.get('/buscaEstado/:estado', function (req, res) {
         var estado = req.params.estado;
 
         var connection = app.persistencia.connectionFactory();
