@@ -1,5 +1,3 @@
-//pagamentos.js
-
 module.exports = function (app) {
     app.post("/criaLojas/criaLoja", function (req, res) {
         var loja = req.body;
@@ -30,7 +28,7 @@ module.exports = function (app) {
         var lojaDao = new app.persistencia.LojaDao(connection); 
 
         lojaDao.salva(loja, function (exception, result) {
-            console.log('loja criada: ' + result);
+            console.log('Loja criada: ' + result);
 
             res.status(201).json(loja);
     })
@@ -51,9 +49,25 @@ module.exports = function (app) {
                 res.status(500).send(erro);
                 return;
             }
-            console.log('loja alterada');
+            console.log('Loja alterada');
             res.send(loja);
         });
 
+    });
+
+    app.delete('/criaLojas/deleta/:id', function (req, res) {
+        var id = req.params.id;
+
+        var connection = app.persistencia.connectionFactory();
+        var lojaDao = new app.persistencia.LojaDao(connection);
+
+        lojaDao.deleta(id, function (erro) {
+            if (erro) {
+                res.status(500).send(erro);
+                return;
+            }
+            console.log('Loja deletada');
+            res.status(204).send();
+        });
     });
 }

@@ -11,6 +11,10 @@ LojaDao.prototype.altera = function (loja, callback) {
         [loja.nome_loja, loja.endereco, loja.celular, loja.cnpj, loja.horarioDeTrabalho, loja.cidade, loja.estado, loja.id], callback);
 }
 
+LojaDao.prototype.deleta = function (id,callback) {
+    this._connection.query('delete from lojas where id=?',[id], callback);
+}
+
 LojaDao.prototype.lista = function (callback) {
     this._connection.query('select * from lojas', callback);
 }
