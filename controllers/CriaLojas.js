@@ -70,4 +70,23 @@ module.exports = function (app) {
             res.status(204).send();
         });
     });
+
+
+    app.get('/criaLojas/buscaId/:id', function (req, res) {
+        var id = req.params.id;
+
+        var connection = app.persistencia.connectionFactory();
+        var lojaDao = new app.persistencia.LojaDao(connection);
+
+        lojaDao.buscaPorId(id, function (erro , resultado) {
+            if (erro) {
+                res.status(500).send(erro);
+                return;
+            }
+            console.log("Loja com o id" + id);
+            res.json(resultado);
+        });
+});
+
+
 }
