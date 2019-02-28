@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/paulodaluz/SemiTcc#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parse": "^0.1.0",
+    "consign": "^0.1.6",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "save": "^2.3.3"
   }
 }
