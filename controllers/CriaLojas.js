@@ -31,7 +31,10 @@ module.exports = function (app) {
 
         lojaDao.salva(loja, function (exception, result) {
             console.log('loja criada: ' + result);
-            res.send(loja);
+
+            res.status(201).json(loja);
     })
+})
+
+
 }
-)}
