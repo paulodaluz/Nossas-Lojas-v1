@@ -89,4 +89,20 @@ module.exports = function (app) {
 });
 
 
+
+    app.get('/criaLojas/buscaEstado/:estado', function (req, res) {
+        var estado = req.params.estado;
+
+        var connection = app.persistencia.connectionFactory();
+        var lojaDao = new app.persistencia.LojaDao(connection);
+
+        lojaDao.lista(estado, function (erro, resultado) {
+            if (erro) {
+                res.status(500).send(erro);
+                return;
+            }
+            console.log("Lojas do estado de " + estado);
+            res.json(resultado);
+        });
+    });
 }
