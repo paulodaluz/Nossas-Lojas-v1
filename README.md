@@ -62,8 +62,8 @@ module.exports = function () {
   Para testar, fazer consultas você deverá utilizar o app ```Postman```.
  Antes de fazer os testes a seguir você deverá executar o seguinte processo:
 
- -Entrar na pasta do projeto no termina;
- -Botar para rodar a aplicação com o comando ```nodemon index.js```
+ - Entrar na pasta do projeto no termina;
+ - Botar para rodar a aplicação com o comando ```nodemon index.js```
  
  ### Cria Loja
   
