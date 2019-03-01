@@ -13,6 +13,9 @@ Programa que guarda informações de lojas físicas de um e-commerce. Guarda inf
  
  Após clonar o repositório, você deve abrir a pasta no terminal e executar o comando "npm install" para instalar todos os pacotes usados na produção da aplicação.
  
+ Após a instalação de todas as bibliotecas você deve abrir o arquivo connectionFactory.js dentro da pasta persistencia no repositório clonado. Nela voce deve inserir seu usuário e senha dentro da fu
+ 
+ 
  No MYSQL voce devera criar uma tabela da seguinte forma:
  
  ```
