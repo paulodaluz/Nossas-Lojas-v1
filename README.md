@@ -137,7 +137,7 @@ module.exports = function () {
   
   ###Complemento
   - Clicando [aqui](https://cloud.docker.com/u/paulera25/repository/docker/paulera25/node), você poderá ver a imagem do NodeJs no DockerHub sendo executada no servidor.
-  -Caso queria ver a documentação deste projeto em uma API no Swagger, basta apenas baixar o arquivo ```swagger-Paulo.yaml``` disponivel em [meu repositório](https://github.com/paulodaluz/SemiTcc.git) no GitHub e importa-lo no site do [Swagger](https://editor.swagger.io/).
+  - Caso queria ver a documentação deste projeto em uma API no Swagger, basta apenas baixar o arquivo ```swagger-Paulo.yaml``` disponivel em [meu repositório](https://github.com/paulodaluz/SemiTcc.git) no GitHub e importa-lo no site do [Swagger](https://editor.swagger.io/).
   
  
  
