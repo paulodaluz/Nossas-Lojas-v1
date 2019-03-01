@@ -10,13 +10,18 @@ Programa que guarda informações de lojas físicas de um e-commerce. Guarda inf
  
  
  # Como baixar e executar
+ Primeiramente você deve ter o node.js e o banco de dados MYSQL.
  
- Após clonar o repositório, você deve abrir a pasta no terminal e executar o comando "npm install" para instalar todos os pacotes usados na produção da aplicação.
+ Após clonar o repositório, você deve abrir a pasta no terminal e executar o comando "npm install" para instalar todos os pacotes usados  na produção da aplicação.
  
- Após a instalação de todas as bibliotecas você deve abrir o arquivo connectionFactory.js dentro da pasta persistencia no repositório clonado. Nela voce deve inserir seu usuário e senha dentro da fu
+ Em seu banco de dados(MySQL) voce deve criar uma database:
+ ```
+ CREATE DATABASE XXXXXXXXXXXXXX;
+ USE XXXXXXXXXXXXX;
+ ```
  
  
- No MYSQL voce devera criar uma tabela da seguinte forma:
+ Após isso você devera criar uma tabela da seguinte forma:
  
  ```
  CREATE TABLE`lojas`(
@@ -32,8 +37,22 @@ PRIMARY KEY(id)
 );
 ```
 
+ Após a instalação de todos os requisitos acima você deve abrir o arquivo ```connectionFactory.js``` dentro da pasta ```persistencia``` no repositório clonado. Nela voce deve inserir seu usuário e senha dentro da função ```createDBConnection``` como abaixo:
  
- 
- 
+ var mysql = require('mysql');
+```
+function createDBConnection() {
+    return mysql.createConnection({
+        host: 'localhost',
+        user: 'INSIRA O SEU USÚARIO AQUI',
+        password: 'INSIRA SUA SENHA AQUI',
+        database: 'INSIRA O NOME DA SUA DATABASE'
+    });
+}
+
+module.exports = function () {
+    return createDBConnection;
+}
+```
  
  
