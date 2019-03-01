@@ -21,7 +21,7 @@ Programa que guarda informações de lojas físicas de um e-commerce. Guarda inf
  USE XXXXXXXXXXXXX;
  ```
  No lugar de ```XXXXXXXXXXXXX``` você deve color o nome da sua database e no campo abaixo você deve colocar o nome escolhido em cima novamente.
- ```Obs:Em meu exemplo usei lojas como nome da database.```
+ ```Obs:Em meu exemplo usei "lojas" como nome da database.```
  
  Após isso você devera criar uma tabela da seguinte forma:
  
@@ -59,6 +59,7 @@ module.exports = function () {
  
  
  ## Como Utilizar
+ 
   Para testar, fazer consultas você deverá utilizar o app ```Postman```.
  Antes de fazer os testes a seguir você deverá executar o seguinte processo:
 
@@ -66,13 +67,15 @@ module.exports = function () {
  - Botar para rodar a aplicação com o comando ```nodemon index.js```.
  - É recomendado tambem estár com o MySQL aberto para poder ver as alterações no banco de dados.
  
+ 
  ### Cria Loja
   
- Para criar uma nova loja e cadastra-la você deverá selecionar o método ```POST``` no ```Postman``` e deverá:
+ Para criar uma nova loja e cadastra-la, você deverá selecionar o método ```POST``` no ```Postman``` e deverá:
  
  - Inserir a URL: http://localhost:3000/criaLoja;
+ - Na aba Headers você deverá usar ```Content-Type```;
  - Na aba ```Body``` deverá selecionar o modo ```raw``` e selecionar o ```JSON(application/json)```;
- - E no campo abaixo você irá inserir os dados da loja, como no exemplo:
+ - E no campo abaixo você irá inserir os dados da loja, passando-os como no exemplo:
  ```
  {
     "nome_loja": "Loja A",
@@ -84,6 +87,65 @@ module.exports = function () {
     "estado": "A"
 }
  ```
+ Após isso, você irá notar que foi acrescentado em seu banco de dados, na tabela as informações e irá retornar que a tabela foi criada em seu console!
+ 
+ 
+ ### Edita Loja
+ 
+ Para editar uma loja, você deverá selecionar o método ```PUT``` no ```Postman``` e deverá:
+ - Inserir a URL: http://localhost:3000/editaLoja/{id} passando o ```ID``` da loja que deseja editar no lugar de ```{id}```;
+ - Na aba Headers você deverá usar ```Content-Type```;
+ - Na aba ```Body``` deverá selecionar o modo ```raw``` e selecionar o ```JSON(application/json)```;
+ - E no campo abaixo você irá inserir os NOVOS dados da loja, passando-os como no exemplo:
+  ```
+ {
+    "nome_loja": "Loja B",
+    "endereco": "Rua Cba, 001",
+    "celular": 11 1111 1111,
+    "cnpj": "00.000.000/0000-01",
+    "horarioDeTrabalho": "Diariamente das 14hs às 22hs",
+    "cidade": "Cidade ABC",
+    "estado": "A"
+}
+ ```
+ 
+ Assim que você atualizar seu banco de dados ira ver que sua tabela foi atualizada com sucesso!
+
+ ### Deleta Loja
+ 
+ Para deletar uma loja, você irá selecionar o método ```DELETE``` no ```Postman``` e deverá:
+ - Inserir a URL: http://localhost:3000/deletaLoja/{id} passando o ```ID``` da loja que deseja deletar no lugar de ```{id}```;
+ - Na aba Headers você deverá usar ```Content-Type```.
+ 
+ Após a atualização da tabela você irá notar que foi deletada a loja com o ```ID``` correspondente ao que foi passado.
+ 
+ 
+ ### Busca por ID
+ Para buscar uma loja pelo ```ID```, você deverá selecionar o método ```GET``` no ```Postman``` e deverá:
+ - Inserir a URL: http://localhost:3000/buscaId/{id} passando o ```ID``` da loja que deseja buscar no lugar de ```{id}```;
+ - Na aba Headers você deverá usar ```Content-Type```.
+ 
+ E você irá perceber que retornou no Body as informações da loja cujo o ```ID``` correspondente ao que foi passado.
+ 
+ 
+  ### Busca por Estado
+  Para buscar uma loja pelo ```estado```, você deverá selecionar o método ```GET``` no ```Postman``` e deverá:
+  - Inserir a URL: http://localhost:3000/buscaEstado/{estado} passando o ```Estado``` da loja que deseja buscar no lugar de ```{estado}```;
+  - Na aba Headers você deverá usar ```Content-Type```.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
