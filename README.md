@@ -132,7 +132,13 @@ module.exports = function () {
   Para buscar uma loja pelo ```estado```, você deverá selecionar o método ```GET``` no ```Postman``` e deverá:
   - Inserir a URL: http://localhost:3000/buscaEstado/{estado} passando o ```Estado``` da loja que deseja buscar no lugar de ```{estado}```;
   - Na aba Headers você deverá usar ```Content-Type```.
- 
+  
+  Caso queira ver minha ```Collection``` no ```Postman``` é só clicar [aqui](https://www.getpostman.com/collections/821e689fc365585952a9).
+  
+  ###Complemento
+  - Clicando [aqui](https://cloud.docker.com/u/paulera25/repository/docker/paulera25/node), você poderá ver a imagem do NodeJs no DockerHub sendo executada no servidor.
+  -Caso queria ver a documentação deste projeto em uma API no Swagger, basta apenas baixar o arquivo ```swagger-Paulo.yaml``` disponivel em [meu repositório](https://github.com/paulodaluz/SemiTcc.git) no GitHub e importa-lo no site do [Swagger](https://editor.swagger.io/).
+  
  
  
  
