@@ -21,7 +21,7 @@ Programa que guarda informações de lojas físicas de um e-commerce. Guarda inf
  USE XXXXXXXXXXXXX;
  ```
  No lugar de ```XXXXXXXXXXXXX``` você deve color o nome da sua database e no campo abaixo você deve colocar o nome escolhido em cima novamente.
- 
+ ```Obs:Em meu exemplo usei lojas como nome da database.```
  
  Após isso você devera criar uma tabela da seguinte forma:
  
@@ -63,8 +63,29 @@ module.exports = function () {
  Antes de fazer os testes a seguir você deverá executar o seguinte processo:
 
  - Entrar na pasta do projeto no termina;
- - Botar para rodar a aplicação com o comando ```nodemon index.js```
+ - Botar para rodar a aplicação com o comando ```nodemon index.js```.
+ - É recomendado tambem estár com o MySQL aberto para poder ver as alterações no banco de dados.
  
  ### Cria Loja
   
- Para criar uma nova loja e cadastra-la em nosso banco de dados v)
+ Para criar uma nova loja e cadastra-la você deverá selecionar o método ```POST``` no ```Postman``` e deverá:
+ 
+ - Inserir a URL: http://localhost:3000/criaLoja;
+ - Na aba ```Body``` deverá selecionar o modo ```raw``` e selecionar o ```JSON(application/json)```;
+ - E no campo abaixo você irá inserir os dados da loja, como no exemplo:
+ ```
+ {
+    "nome_loja": "Loja A",
+    "endereco": "Rua Abc, 000",
+    "celular": 00 0000 0000,
+    "cnpj": "00.000.000/0000-00",
+    "horarioDeTrabalho": "Diariamente das 11hs às 23hs",
+    "cidade": "Cidade ABC",
+    "estado": "A"
+}
+ ```
+ 
+ 
+ 
+ 
+ 
