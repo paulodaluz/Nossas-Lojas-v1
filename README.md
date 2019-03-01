@@ -14,11 +14,13 @@ Programa que guarda informações de lojas físicas de um e-commerce. Guarda inf
  
  Após clonar o repositório, você deve abrir a pasta no terminal e executar o comando "npm install" para instalar todos os pacotes usados  na produção da aplicação.
  
- Em seu banco de dados(MySQL) voce deve criar uma database:
+ Em seu banco de dados(MySQL) voce deve criar uma database da seguinte forma:
+ 
  ```
- CREATE DATABASE XXXXXXXXXXXXXX;
+ CREATE DATABASE XXXXXXXXXXXXX;
  USE XXXXXXXXXXXXX;
  ```
+ No lugar de ```XXXXXXXXXXXXX``` você deve color o nome da sua database e no campo abaixo você deve colocar o nome escolhido em cima novamente.
  
  
  Após isso você devera criar uma tabela da seguinte forma:
