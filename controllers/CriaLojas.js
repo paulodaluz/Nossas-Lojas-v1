@@ -97,7 +97,7 @@ module.exports = function (app) {
 
 
 
-    app.get('/buscaEstado/:estado/:cidade', function (req, res) {
+    app.get('/buscaEstadoeCidade/:estado/:cidade', function (req, res) {
         var estado = req.params.estado;
         var cidade = req.params.cidade;
 
