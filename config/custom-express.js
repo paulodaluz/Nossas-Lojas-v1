@@ -17,7 +17,8 @@ module.exports = function () {
     consign()
         .include('controllers')
         .then('persistencia')
-        .into(app);
+        .into(app); /// incluido o controler e a persistencia dentro do app
+        // ta faznedo o app reconhecer todas as pastas
 
     return app
 }

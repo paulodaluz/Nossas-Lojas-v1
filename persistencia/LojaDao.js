@@ -19,8 +19,8 @@ LojaDao.prototype.buscaPorId = function (id, callback) {
     this._connection.query('select * from lojas where id = ?', [id], callback);
 }
 
-LojaDao.prototype.lista = function (estado,callback) {
-    this._connection.query('select * from lojas where estado = ?',[estado], callback);
+LojaDao.prototype.buscaEstadoECidade = function (estado, cidade, callback) {
+    this._connection.query('select * from lojas where estado = ? && cidade = ?',[estado, cidade], callback);
 }
 
 

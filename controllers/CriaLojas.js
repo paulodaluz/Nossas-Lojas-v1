@@ -3,7 +3,6 @@ module.exports = function (app) {
         var loja = req.body;
         console.log('processando aguarde...');
 
-        var loja = req.body;
 
         req.assert("nome_loja", "Nome da loja é obrigatório.").notEmpty();
         req.assert("endereco", "Endereço da loja é obrigatório.").notEmpty();
@@ -61,14 +60,22 @@ module.exports = function (app) {
         var connection = app.persistencia.connectionFactory();
         var lojaDao = new app.persistencia.LojaDao(connection);
 
-        lojaDao.deleta(id, function (erro) {
+        lojaDao.deleta(id, function (erro , result) {
             if (erro) {
+                console.log("Erro ao deletar a loja, tente novamente mais tarde")
                 res.status(500).send(erro);
                 return;
             }
-            console.log('Loja deletada');
-            res.status(204).send();
+            if (result.affectedRows > 0) {
+                console.log('Loja deletada');
+                res.status(204).send();
+            } else {
+                console.log("Loja não encontrada, confira seus dados e tente novamente")
+                res.status(400).send();
+            }
+
         });
+
     });
 
 
@@ -90,18 +97,19 @@ module.exports = function (app) {
 
 
 
-    app.get('/buscaEstado/:estado', function (req, res) {
+    app.get('/buscaEstado/:estado/:cidade', function (req, res) {
         var estado = req.params.estado;
+        var cidade = req.params.cidade;
 
         var connection = app.persistencia.connectionFactory();
         var lojaDao = new app.persistencia.LojaDao(connection);
 
-        lojaDao.lista(estado, function (erro, resultado) {
+        lojaDao.buscaEstadoECidade(estado, cidade, function (erro, resultado) {
             if (erro) {
                 res.status(500).send(erro);
                 return;
             }
-            console.log("Lojas do estado de " + estado);
+            console.log("Lojas do estado de " + estado + "E da cidade de" + cidade);
             res.json(resultado);
         });
     });
