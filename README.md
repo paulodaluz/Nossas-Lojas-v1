@@ -128,9 +128,9 @@ module.exports = function () {
  E você irá perceber que retornou no Body as informações da loja cujo o ```ID``` correspondente ao que foi passado.
  
  
-  ### Busca por Estado
-  Para buscar uma loja pelo ```estado```, você deverá selecionar o método ```GET``` no ```Postman``` e deverá:
-  - Inserir a URL: http://localhost:3000/buscaEstado/{estado} passando o ```Estado``` da loja que deseja buscar no lugar de ```{estado}```;
+  ### Busca por Estado e Cidade
+  Para buscar uma loja pelo ```estado``` e ```cidade```, você deverá selecionar o método ```GET``` no ```Postman``` e deverá:
+  - Inserir a URL: http://localhost:3000/buscaEstado/{estado}/{cidade} passando o ```Estado``` e a ```Cidade``` da loja que deseja buscar no lugar de ```{estado}``` e de ```{cidade}```;
   - Na aba Headers você deverá usar ```Content-Type```.
   
   Caso queira ver minha ```Collection``` no ```Postman``` é só clicar [aqui](https://www.getpostman.com/collections/821e689fc365585952a9).
