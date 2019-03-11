@@ -33,6 +33,7 @@ module.exports = function (app) {
     })
 })
 
+
     app.put('/editaLoja/:id', function (req, res) {
 
         var loja = req.body;
@@ -53,6 +54,7 @@ module.exports = function (app) {
         });
 
     });
+
 
     app.delete('/deletaLoja/:id', function (req, res) {
         var id = req.params.id;
@@ -93,11 +95,11 @@ module.exports = function (app) {
             console.log("Loja com o id" + id);
             res.json(resultado);
         });
-});
-
+    });
 
 
     app.get('/buscaEstadoeCidade/:estado/:cidade', function (req, res) {
+        
         var estado = req.params.estado;
         var cidade = req.params.cidade;
 
@@ -110,6 +112,40 @@ module.exports = function (app) {
                 return;
             }
             console.log("Lojas do estado de " + estado + "E da cidade de" + cidade);
+            res.json(resultado);
+        });
+    });
+
+
+
+    app.get('/buscaEstado/:estado', function (req, res) {
+        var estado = req.params.estado;
+
+        var connection = app.persistencia.connectionFactory();
+        var lojaDao = new app.persistencia.LojaDao(connection);
+
+        lojaDao.BuscaEstado(estado, function (erro, resultado) {
+            if (erro) {
+                res.status(500).send(erro);
+                return;
+            }
+            console.log("Lojas do estado de " + estado);
+            res.json(resultado);
+        });
+    });
+
+
+    app.get('/listaLojas', function (req, res) {
+
+        var connection = app.persistencia.connectionFactory();
+        var lojaDao = new app.persistencia.LojaDao(connection);
+
+        lojaDao.listaTodos(function (erro, resultado) {
+            if (erro) {
+                res.status(500).send(erro);
+                return;
+            }
+            console.log("Todas as lojas foram listadas");
             res.json(resultado);
         });
     });

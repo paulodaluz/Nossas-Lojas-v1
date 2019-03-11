@@ -25,6 +25,15 @@ LojaDao.prototype.buscaEstadoECidade = function (estado, cidade, callback) {
 
 
 
+LojaDao.prototype.BuscaEstado = function (estado, callback) {
+    this._connection.query('select * from lojas where estado = ?', [estado], callback);
+}
+
+LojaDao.prototype.listaTodos = function (callback) {
+    this._connection.query('select * from lojas where estado = ? && cidade = ', callback);
+}
+
+
 module.exports = function () {
     return LojaDao;
 };
