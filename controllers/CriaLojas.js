@@ -98,44 +98,67 @@ module.exports = function (app) {
     });
 
 
-    app.get('/buscaEstadoeCidade/:estado/:cidade', function (req, res) {
+    app.get('/buscaEstadoeCidade/:estado/:cidadeA', function (req, res) {
         
         var estado = req.params.estado;
-        var cidade = req.params.cidade;
+        var cidadeA = req.params.cidadeA;
 
         var connection = app.persistencia.connectionFactory();
         var lojaDao = new app.persistencia.LojaDao(connection);
 
-        lojaDao.buscaEstadoECidade(estado, cidade, function (erro, resultado) {
+        lojaDao.buscaEstadoEUmaCidade(estado, cidadeA, function (erro, resultado) {
             if (erro) {
                 res.status(500).send(erro);
                 return;
             }
-            console.log("Lojas do estado de " + estado + "E da cidade de" + cidade);
+            console.log("Lojas do estado de " + estado + " e da cidade de " + cidadeA);
             res.json(resultado);
         });
     });
 
-    app.get('/buscaEstadoECidade/:estado/:cidadeA/:cidadeB/:cidadeC/:cidadeD', function (req, res) {
+
+    app.get('/buscaEstadoeCidade/:estado/:cidadeA/:cidadeB', function (req, res) {
+
+        var estado = req.params.estado;
+        var cidadeA = req.params.cidadeA;
+        var cidadeB = req.params.cidadeB;
+
+
+        var connection = app.persistencia.connectionFactory();
+        var lojaDao = new app.persistencia.LojaDao(connection);
+
+        lojaDao.buscaEstadoEDuasCidades(estado, cidadeA, cidadeB, function (erro, resultado) {
+            if (erro) {
+                res.status(500).send(erro);
+                return;
+            }
+            console.log("Lojas do estado de " + estado + " das cidades de " + cidadeA + "," + cidadeB);
+            res.json(resultado);
+        });
+    });
+
+
+    app.get('/buscaEstadoeCidade/:estado/:cidadeA/:cidadeB/:cidadeC', function (req, res) {
 
         var estado = req.params.estado;
         var cidadeA = req.params.cidadeA;
         var cidadeB = req.params.cidadeB;
         var cidadeC = req.params.cidadeC;
-        var cidadeD = req.params.cidadeD;
+
 
         var connection = app.persistencia.connectionFactory();
         var lojaDao = new app.persistencia.LojaDao(connection);
 
-        lojaDao.buscaEstadoEDuasCidades(estado, cidadeA, cidadeB, cidadeC, cidadeD, function (erro, resultado) {
+        lojaDao.buscaEstadoETresCidades(estado, cidadeA, cidadeB, cidadeC, function (erro, resultado) {
             if (erro) {
                 res.status(500).send(erro);
                 return;
             }
-            console.log("Lojas do estado de " + estado + " das cidades de " + cidadeA + "," + cidadeB + "," + cidadeC + "," + cidadeD);
+            console.log("Lojas do estado de " + estado + " das cidades de " + cidadeA + "," + cidadeB + "," + cidadeC);
             res.json(resultado);
         });
     });
+
 
     app.get('/buscaEstado/:estado', function (req, res) {
         var estado = req.params.estado;
