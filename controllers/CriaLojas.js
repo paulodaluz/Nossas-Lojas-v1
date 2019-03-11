@@ -116,7 +116,24 @@ module.exports = function (app) {
         });
     });
 
+    app.get('/buscaEstadoECidade/:estado/:cidade/:cidadeB', function (req, res) {
 
+        var estado = req.params.estado;
+        var cidadeA = req.params.cidade;
+        var cidadeB = req.params.cidadeB;
+
+        var connection = app.persistencia.connectionFactory();
+        var lojaDao = new app.persistencia.LojaDao(connection);
+
+        lojaDao.buscaEstadoEDuasCidades(estado, cidadeA, cidadeB, function (erro, resultado) {
+            if (erro) {
+                res.status(500).send(erro);
+                return;
+            }
+            console.log("Lojas do estado de " + estado + "e das cidades: " + cidadeA + cidadeB);
+            res.json(resultado);
+        });
+    });
 
     app.get('/buscaEstado/:estado', function (req, res) {
         var estado = req.params.estado;
