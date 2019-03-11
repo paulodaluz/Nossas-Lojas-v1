@@ -31,8 +31,8 @@ LojaDao.prototype.listaTodos = function (callback) {
     this._connection.query('select * from lojas', callback);
 }
 
-LojaDao.prototype.buscaEstadoEDuasCidades = function (estado, cidadeA, cidadeB, callback) {
-    this._connection.query('select * from lojas where (cidade = ? || cidade = ?) && estado = ?', [cidadeA, cidadeB, estado], callback)
+LojaDao.prototype.buscaEstadoEDuasCidades = function (estado, cidadeA, cidadeB, cidadeC, cidadeD, callback) {
+    this._connection.query('select * from lojas where (cidade = ? || cidade = ? || cidade = ? || cidade = ?) && estado = ?', [cidadeA, cidadeB, cidadeC, cidadeD, estado], callback)
 }
 
 module.exports = function () {

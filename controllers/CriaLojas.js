@@ -116,21 +116,23 @@ module.exports = function (app) {
         });
     });
 
-    app.get('/buscaEstadoECidade/:estado/:cidade/:cidadeB', function (req, res) {
+    app.get('/buscaEstadoECidade/:estado/:cidadeA/:cidadeB/:cidadeC/:cidadeD', function (req, res) {
 
         var estado = req.params.estado;
-        var cidadeA = req.params.cidade;
+        var cidadeA = req.params.cidadeA;
         var cidadeB = req.params.cidadeB;
+        var cidadeC = req.params.cidadeC;
+        var cidadeD = req.params.cidadeD;
 
         var connection = app.persistencia.connectionFactory();
         var lojaDao = new app.persistencia.LojaDao(connection);
 
-        lojaDao.buscaEstadoEDuasCidades(estado, cidadeA, cidadeB, function (erro, resultado) {
+        lojaDao.buscaEstadoEDuasCidades(estado, cidadeA, cidadeB, cidadeC, cidadeD, function (erro, resultado) {
             if (erro) {
                 res.status(500).send(erro);
                 return;
             }
-            console.log("Lojas do estado de " + estado + "e das cidades: " + cidadeA + cidadeB);
+            console.log("Lojas do estado de " + estado + " das cidades de " + cidadeA + "," + cidadeB + "," + cidadeC + "," + cidadeD);
             res.json(resultado);
         });
     });
