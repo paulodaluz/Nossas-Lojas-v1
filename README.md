@@ -2,6 +2,8 @@
 
 Programa que guarda informações de lojas físicas de um e-commerce. Guarda informações como id das lojas, nome, endereço, telefone/celular, CNPJ, horário de trabalho, cidade onde se localiza e estado. 
 
+# Objetivo do Projeto
+O objetivo do projeto é criar um site em NodeJS atendendo aos requisitos nesse [link](https://github.com/myreli/c_trilhas/blob/master/microservices_node/desafio1/README.md).
 
 # Ferramentas Utilizadas
 
@@ -138,22 +140,3 @@ module.exports = function () {
   ###Complemento
   - Clicando [aqui](https://cloud.docker.com/u/paulera25/repository/docker/paulera25/node), você poderá ver a imagem do NodeJs no DockerHub sendo executada no servidor.
   - Caso queria ver a documentação deste projeto em uma API no Swagger, basta apenas baixar o arquivo ```swagger-Paulo.yaml``` disponivel em [meu repositório](https://github.com/paulodaluz/SemiTcc.git) no GitHub e importa-lo no site do [Swagger](https://editor.swagger.io/).
-  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
