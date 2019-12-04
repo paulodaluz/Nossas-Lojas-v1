@@ -1,4 +1,4 @@
-# Nossas Lojas v1
+# Nossas Lojas v1.0
 
 Programa que guarda informações de lojas físicas de um e-commerce. Guarda informações como id das lojas, nome, endereço, telefone/celular, CNPJ, horário de trabalho, cidade onde se localiza e estado. 
 
